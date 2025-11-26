@@ -83,6 +83,21 @@ services:
       avalanche:
         ipv4_address: 172.28.0.15
 
+  validator:
+    <<: *avalanche-node
+    container_name: avalanche-validator
+    ports:
+      - "9660:9660"
+      - "9661:9661"
+    volumes:
+      - ./config/validator:/config:ro
+      - ./artifacts/staking/validator:/staking:ro
+      - ./artifacts/genesis:/genesis:ro
+      - ./data/validator:/data
+    networks:
+      avalanche:
+        ipv4_address: 172.28.0.16
+
 networks:
   avalanche:
     driver: bridge

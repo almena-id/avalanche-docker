@@ -1,6 +1,6 @@
-# Private Avalanche Network With 5 Nodes
+# Private Avalanche Network With 5 Full Nodes + 1 Validator
 
-This project spins up a private Avalanche network using five AvalancheGo instances managed by Docker Compose. It reuses the genesis file and staking keys that Avalanche Labs publishes for the public “local” network, but the cluster runs with a custom `network-id` (1337) so the bundled genesis can be loaded without conflicting with the standard presets.
+This project spins up a private Avalanche network using five full AvalancheGo instances plus an additional validator node, all managed by Docker Compose. It reuses the genesis file and staking keys that Avalanche Labs publishes for the public “local” network, but the cluster runs with a custom `network-id` (1337) so the bundled genesis can be loaded without conflicting with the standard presets.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ This project spins up a private Avalanche network using five AvalancheGo instanc
      -d '{"jsonrpc":"2.0","id":1,"method":"info.getNodeID"}'
    ```
 
-   Repeat with ports `9652`, `9654`, `9656`, `9658` for the other nodes.
+   Repeat with ports `9652`, `9654`, `9656`, `9658` for the other full nodes and `9660` for the validator.
 
 5. Stop every container:
 
@@ -38,27 +38,31 @@ This project spins up a private Avalanche network using five AvalancheGo instanc
 
 ## What Does Each Node Expose?
 
-| Node  | HTTP | Staking | NodeID                                     |
-|-------|------|---------|--------------------------------------------|
-| node1 | 9650 | 9651    | NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg   |
-| node2 | 9652 | 9653    | NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ   |
-| node3 | 9654 | 9655    | NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN   |
-| node4 | 9656 | 9657    | NodeID-GWPcbFJZFfZreETSoWjPimr846mXEKCtu   |
-| node5 | 9658 | 9659    | NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5   |
+| Node      | HTTP | Staking | NodeID                                     |
+|-----------|------|---------|--------------------------------------------|
+| node1     | 9650 | 9651    | NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg   |
+| node2     | 9652 | 9653    | NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ   |
+| node3     | 9654 | 9655    | NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN   |
+| node4     | 9656 | 9657    | NodeID-GWPcbFJZFfZreETSoWjPimr846mXEKCtu   |
+| node5     | 9658 | 9659    | NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5   |
+| validator | 9660 | 9661    | NodeID-MgiveP2p1Gni7jXWFG2UBF2aKesw4eq4R   |
 
 All services mount `artifacts/genesis/genesis.json` (the official local genesis) plus the TLS/BLS keys stored in `artifacts/staking/node*/`. The network ID is set to `1337`, so it never collides with the built-in IDs. These keys **must only be used for local or lab environments**.
 
-Each container owns a static IP inside the Compose bridge (`172.28.0.11`–`172.28.0.15`) so the `bootstrap-ips` values always reference valid addresses.
+Each container owns a static IP inside the Compose bridge (`172.28.0.11`–`172.28.0.16`) so the `bootstrap-ips` values always reference valid addresses. The dedicated `validator` service is the only one mounting a BLS signer key, so it actively participates in consensus while the rest operate as full (non-validating) nodes.
 
 ## Project Layout
 
 ```
 artifacts/
   genesis/genesis.json       # Avalanche local genesis
-  staking/node*/             # TLS (staker.crt/key) and BLS (signer.key) files
-config/node*/config.json     # Per-node AvalancheGo config
- data/node*/                 # Persistent DB and log folders
- docker-compose.yml          # Orchestrates the 5 containers
+  staking/node*/             # TLS (staker.crt/key) and BLS (signer.key) files for full nodes
+  staking/validator/         # TLS/BLS bundle for the dedicated validator
+config/node*/config.json     # Full node configs
+config/validator/config.json # Validator parameters
+ data/node*/                 # Persistent DB and log folders for the 5 full nodes
+ data/validator/             # Validator DB/logs
+ docker-compose.yml          # Orchestrates all containers
  .env                        # AvalancheGo version + Compose project name
  README.md
 ```

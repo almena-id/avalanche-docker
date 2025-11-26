@@ -1,0 +1,91 @@
+
+x-avalanche-node: &avalanche-node
+  image: "avaplatform/avalanchego:${AVALANCHEGO_VERSION}"
+  restart: unless-stopped
+  command:
+    - "/avalanchego/build/avalanchego"
+    - "--config-file=/config/config.json"
+    - "--genesis-file=/genesis/genesis.json"
+
+services:
+  node1:
+    <<: *avalanche-node
+    container_name: avalanche-node1
+    ports:
+      - "9650:9650"
+      - "9651:9651"
+    volumes:
+      - ./config/node1:/config:ro
+      - ./artifacts/staking/node1:/staking:ro
+      - ./artifacts/genesis:/genesis:ro
+      - ./data/node1:/data
+    networks:
+      avalanche:
+        ipv4_address: 172.28.0.11
+
+  node2:
+    <<: *avalanche-node
+    container_name: avalanche-node2
+    ports:
+      - "9652:9652"
+      - "9653:9653"
+    volumes:
+      - ./config/node2:/config:ro
+      - ./artifacts/staking/node2:/staking:ro
+      - ./artifacts/genesis:/genesis:ro
+      - ./data/node2:/data
+    networks:
+      avalanche:
+        ipv4_address: 172.28.0.12
+
+  node3:
+    <<: *avalanche-node
+    container_name: avalanche-node3
+    ports:
+      - "9654:9654"
+      - "9655:9655"
+    volumes:
+      - ./config/node3:/config:ro
+      - ./artifacts/staking/node3:/staking:ro
+      - ./artifacts/genesis:/genesis:ro
+      - ./data/node3:/data
+    networks:
+      avalanche:
+        ipv4_address: 172.28.0.13
+
+  node4:
+    <<: *avalanche-node
+    container_name: avalanche-node4
+    ports:
+      - "9656:9656"
+      - "9657:9657"
+    volumes:
+      - ./config/node4:/config:ro
+      - ./artifacts/staking/node4:/staking:ro
+      - ./artifacts/genesis:/genesis:ro
+      - ./data/node4:/data
+    networks:
+      avalanche:
+        ipv4_address: 172.28.0.14
+
+  node5:
+    <<: *avalanche-node
+    container_name: avalanche-node5
+    ports:
+      - "9658:9658"
+      - "9659:9659"
+    volumes:
+      - ./config/node5:/config:ro
+      - ./artifacts/staking/node5:/staking:ro
+      - ./artifacts/genesis:/genesis:ro
+      - ./data/node5:/data
+    networks:
+      avalanche:
+        ipv4_address: 172.28.0.15
+
+networks:
+  avalanche:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24

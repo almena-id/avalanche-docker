@@ -1,0 +1,22 @@
+{
+  "network-id": 1337,
+  "public-ip": "172.28.0.12",
+  "http-host": "0.0.0.0",
+  "http-port": 9652,
+  "staking-port": 9653,
+  "staking-tls-key-path": "/staking/staker.key",
+  "staking-tls-cert-path": "/staking/staker.crt",
+  "staking-signer-key-path": "/staking/signer.key",
+  "bootstrap-ips": "172.28.0.11:9651,172.28.0.12:9653,172.28.0.13:9655,172.28.0.14:9657,172.28.0.15:9659",
+  "bootstrap-ids": "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg,NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ,NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN,NodeID-GWPcbFJZFfZreETSoWjPimr846mXEKCtu,NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5",
+  "db-dir": "/data/db",
+  "log-dir": "/data/logs",
+  "api-admin-enabled": true,
+  "api-metrics-enabled": true,
+  "api-health-enabled": true,
+  "api-info-enabled": true,
+  "index-enabled": true,
+  "ipcs-enabled": false,
+  "staking-disabled-weight-threshold": 0,
+  "assertions-enabled": true
+}

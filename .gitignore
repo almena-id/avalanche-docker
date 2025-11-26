@@ -1,0 +1,14 @@
+# Dependencias y binarios
+*.log
+*.tmp
+*.swp
+
+# Datos generados por AvalancheGo
+data/
+
+# Certificados/llaves copiadas del repo oficial
+artifacts/staking/
+
+# Ajustes locales de proyectos
+.DS_Store
+.env.local

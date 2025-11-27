@@ -49,7 +49,7 @@ This project spins up a private Avalanche network using five full AvalancheGo in
 
 All services mount `artifacts/genesis/genesis.json` (the official local genesis) plus the TLS/BLS keys stored in `artifacts/staking/node*/`. The network ID is set to `1337`, so it never collides with the built-in IDs. These keys **must only be used for local or lab environments**.
 
-Each container owns a static IP inside the Compose bridge (`172.28.0.11`–`172.28.0.16`) so the `bootstrap-ips` values always reference valid addresses. The dedicated `validator` service is the only one mounting a BLS signer key, so it actively participates in consensus while the rest operate as full (non-validating) nodes.
+Each container owns a static IP inside the Compose bridge (`172.28.0.11`–`172.28.0.30`) so the `bootstrap-ips` values always reference valid addresses. The dedicated `validator` service is the only one mounting a BLS signer key, so it actively participates in consensus while the rest operate as full (non-validating) nodes.
 
 ## Project Layout
 

@@ -34,8 +34,8 @@ services:
     <<: *avalanche-node
     container_name: avalanche-node2
     ports:
-      - "9652:9652"
-      - "9653:9653"
+      - "9652:9650"
+      - "9653:9651"
     volumes:
       - ./config/node2/config.json:/config/config.json:ro
       - ./config/node2/staking:/staking:ro
@@ -49,8 +49,8 @@ services:
     <<: *avalanche-node
     container_name: avalanche-node3
     ports:
-      - "9654:9654"
-      - "9655:9655"
+      - "9654:9650"
+      - "9655:9651"
     volumes:
       - ./config/node3/config.json:/config/config.json:ro
       - ./config/node3/staking:/staking:ro
@@ -64,8 +64,8 @@ services:
     <<: *avalanche-node
     container_name: avalanche-node4
     ports:
-      - "9656:9656"
-      - "9657:9657"
+      - "9656:9650"
+      - "9657:9651"
     volumes:
       - ./config/node4/config.json:/config/config.json:ro
       - ./config/node4/staking:/staking:ro
@@ -79,8 +79,8 @@ services:
     <<: *avalanche-node
     container_name: avalanche-node5
     ports:
-      - "9658:9658"
-      - "9659:9659"
+      - "9658:9650"
+      - "9659:9651"
     volumes:
       - ./config/node5/config.json:/config/config.json:ro
       - ./config/node5/staking:/staking:ro

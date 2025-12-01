@@ -89,15 +89,6 @@
 				"publicKey": "0x8048109c3da13de0700f9f3590c3270bfc42277417f6d0cc84282947e1a1f8b4980fd3e3fe223acf0f56a5838890814a",
 				"proofOfPossession": "0xb034e0d0ec808b7ec456a6d88bdad7b32854794605a11139d70430d81fb93834a3f81d8969042952daff335fec51018016a7ecb19d38597c5743a4eb3fb945ebe28a4250dd7bcb7a192c98d2fcaf15320a9bee239c66ddf61bb24f87c6e91971"
 			}
-		},
-		{
-			"nodeID": "NodeID-MgiveP2p1Gni7jXWFG2UBF2aKesw4eq4R",
-			"rewardAddress": "X-local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u",
-			"delegationFee": 31250,
-			"signer": {
-				"publicKey": "0xac66b75a8943e99f867789cb8cbcbc7e3ffffe8af06bff510e0f1cf9869899df00efe671e399fbb332e77e3d3d62c3d2",
-				"proofOfPossession": "0x8b2e56ef60c188d271fe704219a0ae2068c26765b9f6e950975735123ebdf65925559a9d01567775b042ea1fd24f493a03e8746f0b808bdd9b4482c8c1480c5281654cb638de93a9affd1ea256b201b9672dd1d0eb096f589be50dc51806ba9c"
-			}
 		}
 	],
 	"cChainGenesis": "{\"config\":{\"chainId\":43112,\"homesteadBlock\":0,\"daoForkBlock\":0,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"apricotPhase1BlockTimestamp\":0,\"apricotPhase2BlockTimestamp\":0},\"nonce\":\"0x0\",\"timestamp\":\"0x5FCB13D0\",\"extraData\":\"0x00\",\"gasLimit\":\"0x5f5e100\",\"difficulty\":\"0x0\",\"mixHash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"coinbase\":\"0x0000000000000000000000000000000000000000\",\"alloc\":{\"8db97C7cEcE249c2b98bDC0226Cc4C2A57BF52FC\":{\"balance\":\"0x295BE96E64066972000000\"}},\"number\":\"0x0\",\"gasUsed\":\"0x0\",\"parentHash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\"}",

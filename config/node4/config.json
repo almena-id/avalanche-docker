@@ -9,7 +9,7 @@
   "bootstrap-ips": "172.28.0.11:9651,172.28.0.12:9653,172.28.0.13:9655,172.28.0.14:9657,172.28.0.15:9659",
   "bootstrap-ids": "NodeID-7Xhw2mDxuDS44j42TCB6U5579esbSt3Lg,NodeID-MFrZFVCXPv5iCn6M9K6XduxGTYp891xXZ,NodeID-NFBbbJ4qCmNaCzeW7sxErhvWqvEQMnYcN,NodeID-GWPcbFJZFfZreETSoWjPimr846mXEKCtu,NodeID-P7oB2McjBGgW2NXXWVYjV8JEDFoW9xDE5",
   "db-dir": "/data/db",
-  "log-dir": "/data/logs",
+  "log-dir": "/logs",
   "api-admin-enabled": true,
   "api-metrics-enabled": true,
   "api-health-enabled": true,

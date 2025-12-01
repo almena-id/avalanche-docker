@@ -5,6 +5,11 @@ volumes:
   node3-data:
   node4-data:
   node5-data:
+  node1-logs:
+  node2-logs:
+  node3-logs:
+  node4-logs:
+  node5-logs:
 
 x-avalanche-node: &avalanche-node
   image: "avaplatform/avalanchego:${AVALANCHEGO_VERSION}"
@@ -26,6 +31,7 @@ services:
       - ./config/node1/staking:/staking:ro
       - ./artifacts/genesis/genesis.json:/genesis/genesis.json:ro
       - node1-data:/data
+      - node1-logs:/logs
     networks:
       avalanche:
         ipv4_address: 172.28.0.11
@@ -41,6 +47,7 @@ services:
       - ./config/node2/staking:/staking:ro
       - ./artifacts/genesis/genesis.json:/genesis/genesis.json:ro
       - node2-data:/data
+      - node2-logs:/logs
     networks:
       avalanche:
         ipv4_address: 172.28.0.12
@@ -56,6 +63,7 @@ services:
       - ./config/node3/staking:/staking:ro
       - ./artifacts/genesis/genesis.json:/genesis/genesis.json:ro
       - node3-data:/data
+      - node3-logs:/logs
     networks:
       avalanche:
         ipv4_address: 172.28.0.13
@@ -71,6 +79,7 @@ services:
       - ./config/node4/staking:/staking:ro
       - ./artifacts/genesis/genesis.json:/genesis/genesis.json:ro
       - node4-data:/data
+      - node4-logs:/logs
     networks:
       avalanche:
         ipv4_address: 172.28.0.14
@@ -86,6 +95,7 @@ services:
       - ./config/node5/staking:/staking:ro
       - ./artifacts/genesis/genesis.json:/genesis/genesis.json:ro
       - node5-data:/data
+      - node5-logs:/logs
     networks:
       avalanche:
         ipv4_address: 172.28.0.15
